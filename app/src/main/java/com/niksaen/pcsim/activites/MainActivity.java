@@ -134,8 +134,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public HashMap<String,String> words;
-    private void getLanguage(){
-        TypeToken<HashMap<String,String>> typeToken = new TypeToken<>() {};
+
+    private void getLanguage() {
+        @SuppressWarnings({"rawtypes", "unchecked"})
+        TypeToken<HashMap<String,String>> typeToken = new TypeToken() {};
         words = new Gson().fromJson(new AssetFile(this).getText("language/"+ new Settings(this).Language+".json"),typeToken.getType());
     }
 
