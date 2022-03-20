@@ -2,7 +2,6 @@ package com.niksaen.pcsim.program;
 
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -13,6 +12,8 @@ import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.classes.Others;
 import com.niksaen.pcsim.classes.PortableView;
 import com.niksaen.pcsim.os.cmd.CMD;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 /*
 * Базовый класс для создания программ
@@ -88,7 +89,7 @@ public class Program {
         //настройка базовой части стиля программы
         mainWindow.setBackgroundColor(activity.styleSave.ColorWindow);
         titleTextView.setText(activity.words.get(Title));
-        titleTextView.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"), Typeface.BOLD);
+        titleTextView.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()), Typeface.BOLD);
         titleTextView.setTextColor(activity.styleSave.TitleColor);
         buttonClose.setBackgroundResource(activity.styleSave.CloseButtonImageRes);
         buttonFullscreenMode.setBackgroundResource(activity.styleSave.FullScreenMode1ImageRes);

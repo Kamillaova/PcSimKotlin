@@ -2,7 +2,6 @@ package com.niksaen.pcsim.program.appDownloader;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,8 @@ import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.save.Settings;
 
 import java.util.HashMap;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class AppDownloaderListAdapter extends ArrayAdapter<String> {
     public AppDownloaderListAdapter(@NonNull Context context, int resource) {
@@ -46,7 +47,7 @@ public class AppDownloaderListAdapter extends ArrayAdapter<String> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View main = LayoutInflater.from(getContext()).inflate(R.layout.item_start_menu,null);
         TextView textView = main.findViewById(R.id.app_name);
-        textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/pixelFont.ttf"));
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(getContext()));
         textView.setTextColor(TextColor);
         textView.setBackgroundColor(BackgroundColor);
         textView.setText(words.get(ProgramListAndData.FreeAppList[position]));

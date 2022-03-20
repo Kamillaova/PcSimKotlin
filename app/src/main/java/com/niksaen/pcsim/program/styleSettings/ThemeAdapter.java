@@ -2,26 +2,27 @@ package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.save.StyleSave;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder>{
 
-    private String[] colorTheme1 = ColorList.ThemeColorList1;
-    private String[] colorTheme2 = ColorList.ThemeColorList2;
-    private String[] colorTheme3 = ColorList.ThemeColorList3;
+    private final String[] colorTheme1 = ColorList.ThemeColorList1;
+    private final String[] colorTheme2 = ColorList.ThemeColorList2;
+    private final String[] colorTheme3 = ColorList.ThemeColorList3;
 
 
-    private View[] views;
-    private StyleSave styleSave;
-    private LayoutInflater layoutInflater;
+    private final View[] views;
+    private final StyleSave styleSave;
+    private final LayoutInflater layoutInflater;
     public ThemeAdapter(Context context, View[] views, StyleSave styleSave){
         layoutInflater = LayoutInflater.from(context);
         this.views = views;

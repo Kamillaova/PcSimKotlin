@@ -2,20 +2,21 @@ package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.save.StyleSave;
 
 public class ProgressBarColorAdapter extends RecyclerView.Adapter<ProgressBarColorAdapter.ViewHolder>{
 
-    private int[] resourceDrawable = {
+    private final int[] resourceDrawable = {
             R.drawable.progress_bar_circle_color1,
             R.drawable.progress_bar_circle_color2,
             R.drawable.progress_bar_circle_color3,
@@ -35,10 +36,10 @@ public class ProgressBarColorAdapter extends RecyclerView.Adapter<ProgressBarCol
             R.drawable.progress_bar_circle_color17,
             R.drawable.progress_bar_circle_color18,
     };
-    private String[] colorId = ColorList.ThemeColorList2;
-    private ProgressBar test;
-    private LayoutInflater layoutInflater;
-    private Context context;
+    private final String[] colorId = ColorList.ThemeColorList2;
+    private final ProgressBar test;
+    private final LayoutInflater layoutInflater;
+    private final Context context;
 
     public ProgressBarColorAdapter(Context context, ProgressBar test, StyleSave styleSave){
         layoutInflater = LayoutInflater.from(context);

@@ -2,12 +2,13 @@ package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.save.StyleSave;
@@ -23,8 +24,8 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder>{
             "#555555", "#444444", "#333333", "#222222", "#111111",
             "#000000",
     };
-    private View test;
-    private LayoutInflater layoutInflater;
+    private final View test;
+    private final LayoutInflater layoutInflater;
 
     /**TypeView используется для получения установленного цвета
      * 0-для получения цвета окна
@@ -62,12 +63,9 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.colorView.setBackgroundColor(Color.parseColor(colorId[i]));
-        viewHolder.colorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentColor = Color.parseColor(colorId[i]);
-                test.setBackgroundColor(currentColor);
-            }
+        viewHolder.colorView.setOnClickListener(v -> {
+            currentColor = Color.parseColor(colorId[i]);
+            test.setBackgroundColor(currentColor);
         });
     }
 

@@ -1,26 +1,27 @@
 package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.niksaen.pcsim.R;
 
 public class BackgroundResourceColorAdapter extends RecyclerView.Adapter<BackgroundResourceColorAdapter.ViewHolder> {
 
-    private int[] colorId = {
+    private final int[] colorId = {
             R.color.color1, R.color.color2, R.color.color3, R.color.color4, R.color.color5, R.color.color6, R.color.color7, R.color.color8,
             R.color.color9, R.color.color10, R.color.color11, R.color.color12, R.color.color13, R.color.color14, R.color.color15, R.color.color16,
             R.color.color17, R.color.color18, R.color.color19, R.color.color20, R.color.color21, R.color.color22, R.color.color23, R.color.color24,
             R.color.color25, R.color.color26, R.color.color27, R.color.color28, R.color.color29, R.color.color30, R.color.color31
     };
 
-    private View testBackground;
-    private LayoutInflater layoutInflater;
+    private final View testBackground;
+    private final LayoutInflater layoutInflater;
     public BackgroundResourceColorAdapter(Context context, View testBackground){
         layoutInflater = LayoutInflater.from(context);
         this.testBackground = testBackground;
@@ -37,12 +38,9 @@ public class BackgroundResourceColorAdapter extends RecyclerView.Adapter<Backgro
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.colorView.setBackgroundResource(colorId[i]);
-        viewHolder.colorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentColorId = colorId[i];
-                testBackground.setBackgroundResource(colorId[i]);
-            }
+        viewHolder.colorView.setOnClickListener(v -> {
+            currentColorId = colorId[i];
+            testBackground.setBackgroundResource(colorId[i]);
         });
     }
 

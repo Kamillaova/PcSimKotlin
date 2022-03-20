@@ -2,28 +2,31 @@ package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.save.StyleSave;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class EditTextAdapter extends RecyclerView.Adapter<EditTextAdapter.ViewHolder>{
 
     String hint = "Введите текст приветствия";
 
-    private LayoutInflater layoutInflater;
-    private Typeface typeface;
-    private StyleSave styleSave;
+    private final LayoutInflater layoutInflater;
+    private final Typeface typeface;
+    private final StyleSave styleSave;
     private ViewHolder viewHolder;
 
     public EditTextAdapter(Context context, StyleSave styleSave){
         layoutInflater = LayoutInflater.from(context);
-        typeface = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        typeface = InitFont.INSTANCE.getPixelFont(context);
         BackgroundColor = styleSave.ThemeColor1;
         this.styleSave = styleSave;
     }

@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class GStoreSetupWindow extends Program {
     private String programForSetup;
     private String diskID;
@@ -68,7 +70,7 @@ public class GStoreSetupWindow extends Program {
         buttonFullscreenMode.setBackgroundResource(R.drawable.button_2_2_color17);
         buttonRollUp.setBackgroundResource(R.drawable.button_3_color17);
         titleTextView.setText(activity.words.get(Title));
-        titleTextView.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"), Typeface.BOLD);
+        titleTextView.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()), Typeface.BOLD);
         titleTextView.setTextColor(Color.parseColor("#FFFFFF"));
 
         // настройка кнопок

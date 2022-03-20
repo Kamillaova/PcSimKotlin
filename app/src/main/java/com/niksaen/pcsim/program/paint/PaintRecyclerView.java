@@ -1,26 +1,28 @@
 package com.niksaen.pcsim.program.paint;
 
+import static com.niksaen.pcsim.R.id;
+import static com.niksaen.pcsim.R.layout;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static com.niksaen.pcsim.R.*;
-
 public class PaintRecyclerView extends RecyclerView.Adapter<PaintRecyclerView.ViewHolder> {
 
-    private LayoutInflater inflater;
-    private List<String> dataList;
-    private Context context;
+    private final LayoutInflater inflater;
+    private final List<String> dataList;
+    private final Context context;
     private TextView current_color;
 
     PaintCanvas paintCanvas;

@@ -18,7 +18,7 @@ public class PlayerData {
     public String[] ListPurchasedPrograms;
     public String[] DiskSoftList;
 
-    private SharedPreferences preferences;
+    private final SharedPreferences preferences;
     public PlayerData(Context context){
         preferences = context.getSharedPreferences("PlayerData",Context.MODE_PRIVATE);
         getAllData();

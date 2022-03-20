@@ -2,30 +2,33 @@ package com.niksaen.pcsim.program.musicplayer;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.niksaen.pcsim.R;
 
 import java.util.ArrayList;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class MusicListAdapter extends ArrayAdapter<String> {
 
     ArrayList<String> objects;
-    private Context context;
+    private final Context context;
 
-    private Typeface typeface;
+    private final Typeface typeface;
 
     public MusicListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<String> objects) {
         super(context, resource, objects);
         this.objects = objects;
         this.context = context;
-        typeface = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        typeface = InitFont.INSTANCE.getPixelFont(context);
     }
 
     @Override

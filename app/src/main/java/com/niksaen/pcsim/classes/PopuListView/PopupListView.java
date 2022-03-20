@@ -3,7 +3,6 @@ package com.niksaen.pcsim.classes.PopuListView;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class PopupListView {
     TextView TextView;
@@ -30,7 +31,7 @@ public class PopupListView {
     ListView listView;
     public void show(){
         TextView textView = new TextView(context);
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"));
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context));
         textView.setTextSize(30);
         textView.setBackgroundColor(Color.parseColor("#111111"));
         textView.setTextColor(Color.parseColor("#FFFFFF"));

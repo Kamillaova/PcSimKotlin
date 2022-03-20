@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.niksaen.pcsim"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 32
         versionCode = 17
         versionName = "1.0.9 Alpha (Kotlin)"

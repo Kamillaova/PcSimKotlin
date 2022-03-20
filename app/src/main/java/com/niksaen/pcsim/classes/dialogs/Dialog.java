@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.niksaen.pcsim.R;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class Dialog {
-    private Context context;
+    private final Context context;
     public Dialog(Context context){
         this.context = context;
     }
@@ -58,11 +60,11 @@ public class Dialog {
         ButtonOk = main.findViewById(R.id.ok);
         ButtonCancel = main.findViewById(R.id.cancel);
 
-        TextView.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"));
-        TitleView.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        TextView.setTypeface(InitFont.INSTANCE.getPixelFont(context));
+        TitleView.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
         TextView.setText(Text);
-        ButtonOk.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
-        ButtonCancel.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        ButtonOk.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
+        ButtonCancel.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
 
         if(TitleVisible){
             TitleView.setVisibility(View.VISIBLE);

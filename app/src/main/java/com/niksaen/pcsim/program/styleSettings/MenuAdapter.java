@@ -17,17 +17,19 @@ import com.niksaen.pcsim.save.Settings;
 
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class MenuAdapter extends BaseExpandableListAdapter {
 
     private String[] listGroup;
-    private HashMap<String,String[]> listChild = new HashMap<>();
-    private LayoutInflater layoutInflater;
-    private Typeface font;
+    private final HashMap<String,String[]> listChild = new HashMap<>();
+    private final LayoutInflater layoutInflater;
+    private final Typeface font;
     Context context;
 
     public MenuAdapter(Context context){
         this.context = context;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
         layoutInflater = LayoutInflater.from(context);
         getLanguage();
     }

@@ -22,6 +22,8 @@ import com.niksaen.pcsim.save.Settings;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class TaskManagerAdapter extends ArrayAdapter<Program> {
     ArrayList<Program> programs;
     Context context;
@@ -59,9 +61,9 @@ public class TaskManagerAdapter extends ArrayAdapter<Program> {
         videoMemoryUse.setTextColor(TextColor);
         layout.setBackgroundColor(BackgroundColor);
 
-        programName.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"));
-        ramUse.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"));
-        videoMemoryUse.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"));
+        programName.setTypeface(InitFont.INSTANCE.getPixelFont(context));
+        ramUse.setTypeface(InitFont.INSTANCE.getPixelFont(context));
+        videoMemoryUse.setTypeface(InitFont.INSTANCE.getPixelFont(context));
 
         programName.setText(words.get(programs.get(position).Title));
         ramUse.setText(programs.get(position).CurrentRamUse+"Mb");

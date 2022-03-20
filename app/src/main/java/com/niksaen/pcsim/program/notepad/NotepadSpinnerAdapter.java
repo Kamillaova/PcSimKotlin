@@ -3,24 +3,27 @@ package com.niksaen.pcsim.program.notepad;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.niksaen.pcsim.R;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class NotepadSpinnerAdapter extends ArrayAdapter<String> {
 
-    private Context context;
-    private String[] objects;
-    private LayoutInflater layoutInflater;
-    private Typeface font;
-    private int weight = Typeface.BOLD;
-    private int resource;
+    private final Context context;
+    private final String[] objects;
+    private final LayoutInflater layoutInflater;
+    private final Typeface font;
+    private final int weight = Typeface.BOLD;
+    private final int resource;
     private String text;
 
     public NotepadSpinnerAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
@@ -29,7 +32,7 @@ public class NotepadSpinnerAdapter extends ArrayAdapter<String> {
         this.objects = objects;
         this.resource = resource;
         layoutInflater=LayoutInflater.from(context);
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
     }
 
     public NotepadSpinnerAdapter(@NonNull Context context, int resource, @NonNull String[] objects,String text) {
@@ -38,7 +41,7 @@ public class NotepadSpinnerAdapter extends ArrayAdapter<String> {
         this.objects = objects;
         this.resource = resource;
         layoutInflater=LayoutInflater.from(context);
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = Typeface.createFromAsset(context.getAssets(), "font/pixel.ttf");
         this.text = text;
     }
 

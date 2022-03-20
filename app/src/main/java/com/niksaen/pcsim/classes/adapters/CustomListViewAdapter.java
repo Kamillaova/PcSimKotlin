@@ -16,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class CustomListViewAdapter extends ArrayAdapter<String> {
 
     private final Context context;
@@ -55,7 +57,7 @@ public class CustomListViewAdapter extends ArrayAdapter<String> {
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull @NotNull ViewGroup parent) {
         TextView textView = new TextView(context);
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"),TextStyle);
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context),TextStyle);
         textView.setTextSize(TextSize);
         textView.setPadding(12,12,12,12);
         textView.setTextColor(TextColor);
@@ -68,7 +70,7 @@ public class CustomListViewAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull @NotNull ViewGroup parent) {
         TextView textView = new TextView(context);
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"),TextStyle);
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context),TextStyle);
         textView.setTextSize(TextSize);
         textView.setPadding(12,12,12,12);
         textView.setTextColor(TextColor);

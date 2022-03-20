@@ -1,24 +1,25 @@
 package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.niksaen.pcsim.R;
 
 public class BackgroundResourceImageAdapter extends RecyclerView.Adapter<BackgroundResourceImageAdapter.ViewHolder> {
 
-    private int[] imageId = {
+    private final int[] imageId = {
             R.drawable.background1,R.drawable.background2,R.drawable.background3,R.drawable.background4,R.drawable.background5,
             R.drawable.background6,R.drawable.background7,R.drawable.background8,R.drawable.background9,R.drawable.background10,
     };
 
-    private View testBackground;
-    private LayoutInflater layoutInflater;
+    private final View testBackground;
+    private final LayoutInflater layoutInflater;
     public BackgroundResourceImageAdapter(Context context, View testBackground){
         layoutInflater = LayoutInflater.from(context);
         this.testBackground = testBackground;
@@ -35,12 +36,9 @@ public class BackgroundResourceImageAdapter extends RecyclerView.Adapter<Backgro
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.imageView.setImageResource(imageId[i]);
-        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentImageId = imageId[i];
-                testBackground.setBackgroundResource(imageId[i]);
-            }
+        viewHolder.imageView.setOnClickListener(v -> {
+            currentImageId = imageId[i];
+            testBackground.setBackgroundResource(imageId[i]);
         });
     }
 

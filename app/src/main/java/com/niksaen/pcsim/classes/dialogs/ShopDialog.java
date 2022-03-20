@@ -20,8 +20,10 @@ import com.niksaen.pcsim.save.Settings;
 
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class ShopDialog {
-    private Context context;
+    private final Context context;
     private String name;
     public ShopDialog(Context context){
         this.context = context;
@@ -48,7 +50,7 @@ public class ShopDialog {
         ButtonBuy = main.findViewById(R.id.buy);
         ButtonCancel = main.findViewById(R.id.cancel_button);
 
-        Typeface font = Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf");
+        Typeface font = InitFont.INSTANCE.getPixelFont(context);
         Title.setTypeface(font,Typeface.BOLD);
         Text.setTypeface(font);
         ButtonBuy.setTypeface(font,Typeface.BOLD);

@@ -2,7 +2,6 @@ package com.niksaen.pcsim.program.gStore;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,8 @@ import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.save.Settings;
 
 import java.util.HashMap;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class GStoreAdapter extends ArrayAdapter<String> {
     public GStoreAdapter(@NonNull Context context, int resource) {
@@ -51,7 +52,7 @@ public class GStoreAdapter extends ArrayAdapter<String> {
         View main = LayoutInflater.from(getContext()).inflate(R.layout.item_start_menu,null);
         main.setPadding(8,8,8,8);
         TextView textView = main.findViewById(R.id.app_name);
-        textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/pixelFont.ttf"));
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(getContext()));
         textView.setTextColor(Color.parseColor("#FFFFFF"));
         textView.setBackgroundColor(Color.parseColor("#0042A5"));
         textView.setText(words.get(ProgramListAndData.DontFreeAppList[position]));

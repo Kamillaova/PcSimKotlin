@@ -18,6 +18,8 @@ import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.program.driverInstaller.DriverInstaller;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class AppManagerAdapter extends ArrayAdapter<String> {
 
     public AppManagerAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
@@ -41,8 +43,8 @@ public class AppManagerAdapter extends ArrayAdapter<String> {
         TextView appName = item.findViewById(R.id.app_name);
         TextView useSpace = item.findViewById(R.id.use_space);
 
-        appName.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/pixelFont.ttf"));
-        useSpace.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/pixelFont.ttf"));
+        appName.setTypeface(InitFont.INSTANCE.getPixelFont(getContext()));
+        useSpace.setTypeface(InitFont.INSTANCE.getPixelFont(getContext()));
 
         item.setBackgroundColor(BackgroundColor);
         appName.setTextColor(TextColor);

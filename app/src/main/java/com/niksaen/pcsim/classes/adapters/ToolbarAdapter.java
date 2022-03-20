@@ -1,7 +1,6 @@
 package com.niksaen.pcsim.classes.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.activites.MainActivity;
-import com.niksaen.pcsim.program.Program;
 import com.niksaen.pcsim.classes.ProgramListAndData;
+import com.niksaen.pcsim.program.Program;
 
 import org.jetbrains.annotations.NotNull;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class ToolbarAdapter  extends  RecyclerView.Adapter<ToolbarAdapter.ViewHolder> {
 
@@ -45,7 +46,7 @@ public class ToolbarAdapter  extends  RecyclerView.Adapter<ToolbarAdapter.ViewHo
                 holder.app_icon.setVisibility(View.GONE);
             }
             if (activity.styleSave.ToolbarAppNameVisible) {
-                holder.app_name.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+                holder.app_name.setTypeface(InitFont.INSTANCE.getPixelFont(context));
                 holder.app_name.setText(activity.words.get(activity.programArrayList.get(position).Title));
                 holder.app_name.setTextColor(activity.styleSave.ToolbarTextColor);
             } else {

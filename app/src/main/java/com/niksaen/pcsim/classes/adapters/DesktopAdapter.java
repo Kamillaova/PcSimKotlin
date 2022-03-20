@@ -1,7 +1,6 @@
 package com.niksaen.pcsim.classes.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.R;
+import com.niksaen.pcsim.activites.MainActivity;
+import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.classes.StringArrayWork;
 import com.niksaen.pcsim.program.Program;
-import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.program.window.WarningWindow;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class DesktopAdapter extends  RecyclerView.Adapter<DesktopAdapter.ViewHolder> {
 
@@ -49,7 +50,7 @@ public class DesktopAdapter extends  RecyclerView.Adapter<DesktopAdapter.ViewHol
     public void onBindViewHolder(@NonNull @NotNull DesktopAdapter.ViewHolder holder, int position) {
         holder.app_icon.setImageResource(ProgramListAndData.programIcon.get(apps[position]));
         holder.app_name.setText(activity.words.get(apps[position]));
-        holder.app_name.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+        holder.app_name.setTypeface(InitFont.INSTANCE.getPixelFont(context));
         holder.itemView.setOnClickListener(v -> {
             if(StringArrayWork.ArrayListToString(activity.apps).contains(apps[position])) {
                 Program program = programHashMap.get(apps[position]);

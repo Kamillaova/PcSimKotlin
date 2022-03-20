@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class DrawerAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final String[] strings;
@@ -43,7 +45,7 @@ public class DrawerAdapter extends ArrayAdapter<String> {
             textView.setTextSize(40);
             textView.setPadding(42,22,22,22);
         }
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"), Typeface.BOLD);
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context), Typeface.BOLD);
         textView.setTextColor(TextColor);
         textView.setText(strings[position]);
         textView.setBackgroundColor(BackgroundColor);

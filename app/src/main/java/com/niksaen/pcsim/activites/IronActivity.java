@@ -40,6 +40,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class IronActivity extends AppCompatActivity {
 
     //iron list
@@ -85,7 +87,7 @@ public class IronActivity extends AppCompatActivity {
         setContentView(R.layout.activity_iron);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        font = Typeface.createFromAsset(getAssets(), "fonts/pixelFont.ttf");
+            font = InitFont.INSTANCE.getPixelFont(this);
         
         parametersSave = new PcParametersSave(this);
         playerData = new PlayerData(this);
@@ -466,7 +468,7 @@ public class IronActivity extends AppCompatActivity {
 
     public ArrayAdapter<String> CustomSpinnerPc(final ArrayList<String> array, final String text) {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_pc_component, array) {
-            final Typeface font = Typeface.createFromAsset(getAssets(), "fonts/pixelFont.ttf");
+            final Typeface font = Typeface.createFromAsset(getAssets(), "font/pixel.ttf");
             public View getView(int position, View convertView, ViewGroup parent) {
                 LayoutInflater layoutInflater = LayoutInflater.from(IronActivity.this);
                 View v = layoutInflater.inflate(R.layout.item_pc_component,null);

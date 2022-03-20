@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.program.notepad.NotepadSpinnerAdapter;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class Language {
 
     public static String EN = "EN";
@@ -30,11 +32,11 @@ public class Language {
         TextView
                 textView = view.findViewById(R.id.text),
                 textView1 = view.findViewById(R.id.warn);
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"));
-        textView1.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"));
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context));
+        textView1.setTypeface(InitFont.INSTANCE.getPixelFont(context));
         Spinner lang = view.findViewById(R.id.lang);
         Button save = view.findViewById(R.id.save);
-        save.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        save.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
         save.setBackgroundColor(context.getColor(R.color.buttonColor));
         save.setTextColor(Color.parseColor("#ffffff"));
 

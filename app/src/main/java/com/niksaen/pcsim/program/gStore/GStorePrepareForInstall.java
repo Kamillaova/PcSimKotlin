@@ -26,7 +26,7 @@ public class GStorePrepareForInstall extends Program {
         this.programForSetup = programForSetup;
     }
 
-    private GStoreSetupWindow setupWindow;
+    private final GStoreSetupWindow setupWindow;
     public GStorePrepareForInstall(MainActivity activity) {
         super(activity);
         Title = "Installation Wizard";

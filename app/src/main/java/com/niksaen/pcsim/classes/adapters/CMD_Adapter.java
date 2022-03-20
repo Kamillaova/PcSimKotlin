@@ -2,7 +2,6 @@ package com.niksaen.pcsim.classes.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -17,8 +16,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class CMD_Adapter extends ArrayAdapter<String> {
-    private  Context context;
+    private final Context context;
     public ArrayList<String> strings;
 
     public CMD_Adapter(Context context, ArrayList<String> objects) {
@@ -31,7 +32,7 @@ public class CMD_Adapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull @NotNull ViewGroup parent) {
         TextView textView = new TextView(context);
-        textView.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf"));
+        textView.setTypeface(InitFont.INSTANCE.getPixelFont(context));
         textView.setTextSize(27);
         textView.setPadding(12,12,12,12);
         if(strings.get(position).startsWith(CMD.ERROR)) {

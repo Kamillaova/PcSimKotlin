@@ -22,8 +22,10 @@ import com.niksaen.pcsim.save.Settings;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class DialogCheque {
-    private Context context;
+    private final Context context;
     private AlertDialog alertDialog;
 
     private HashMap<String,String> words;
@@ -42,7 +44,7 @@ public class DialogCheque {
         View main = LayoutInflater.from(context).inflate(R.layout.dialog_recyclerview,null);
         TextView title = main.findViewById(R.id.titleView);
         title.setText(words.get("Confirm Purchase"));
-        title.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        title.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -52,16 +54,16 @@ public class DialogCheque {
 
         Button buy = main.findViewById(R.id.ok);
         buy.setOnClickListener(BuyClickListener);
-        buy.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        buy.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
         buy.setText(words.get("Buy"));
 
         Button cancel = main.findViewById(R.id.cancel);
         cancel.setText(words.get("Cancel"));
-        cancel.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        cancel.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
         cancel.setOnClickListener(v -> alertDialog.dismiss());
 
         TextView allPriceView = main.findViewById(R.id.textView);
-        allPriceView.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"),Typeface.BOLD);
+        allPriceView.setTypeface(InitFont.INSTANCE.getPixelFont(context),Typeface.BOLD);
         allPriceView.setText(words.get("Total cost")+": "+getAllPrice(pcComponentArrayList)+"R");
 
         builder.setView(main);

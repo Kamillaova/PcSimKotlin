@@ -1,5 +1,8 @@
 package com.niksaen.pcsim.program.calculator;
 
+import static com.niksaen.pcsim.R.id;
+import static com.niksaen.pcsim.R.layout;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -11,13 +14,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.niksaen.pcsim.R.id;
-import static com.niksaen.pcsim.R.layout;
-
 public class NumpadAdapter extends RecyclerView.Adapter<NumpadAdapter.ViewHolder> {
 
-    private Context context;
-    private String[] symbolList = {
+    private final Context context;
+    private final String[] symbolList = {
             "C","(",")","/",
             "7","8","9","*",
             "4","5","6","-",
@@ -80,7 +80,7 @@ public class NumpadAdapter extends RecyclerView.Adapter<NumpadAdapter.ViewHolder
             button = view.findViewById(id.button);
             button.setBackgroundColor(BackgroundColor);
             button.setTextColor(TextColor);
-            button.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/pixelFont.ttf"));
+            button.setTypeface(Typeface.createFromAsset(context.getAssets(), "font/pixel.ttf"));
             button.setOnClickListener(v->{
                 InputField.setText(InputField.getText().toString()+button.getText().toString());
             });

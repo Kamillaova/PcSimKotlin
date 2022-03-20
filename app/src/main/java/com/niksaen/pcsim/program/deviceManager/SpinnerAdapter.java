@@ -18,6 +18,8 @@ import com.niksaen.pcsim.classes.AssetFile;
 
 import java.util.ArrayList;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class SpinnerAdapter extends ArrayAdapter<String> {
     Context context;
     String[] objects;
@@ -33,7 +35,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
         str = text;
         this.type = type;
         layoutInflater=LayoutInflater.from(context);
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
     }
 
     //settings adapter
@@ -49,7 +51,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
         str = text;
         this.type = type;
         layoutInflater=LayoutInflater.from(context);
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = Typeface.createFromAsset(context.getAssets(), "font/pixel.ttf");
     }
 
     @Override

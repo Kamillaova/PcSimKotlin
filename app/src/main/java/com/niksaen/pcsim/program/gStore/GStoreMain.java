@@ -10,6 +10,8 @@ import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.classes.PortableView;
 import com.niksaen.pcsim.program.Program;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class GStoreMain extends Program {
 
     AppDescriptionPage appDescriptionPage;
@@ -55,7 +57,7 @@ public class GStoreMain extends Program {
         buttonFullscreenMode.setBackgroundResource(R.drawable.button_2_2_color17);
         buttonRollUp.setBackgroundResource(R.drawable.button_3_color17);
         titleTextView.setText(activity.words.get(Title));
-        titleTextView.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"), Typeface.BOLD);
+        titleTextView.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()), Typeface.BOLD);
         titleTextView.setTextColor(Color.parseColor("#FFFFFF"));
 
         // настройка кнопок

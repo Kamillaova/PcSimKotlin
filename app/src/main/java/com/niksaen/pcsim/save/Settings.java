@@ -7,7 +7,7 @@ public class Settings {
     public String Theme = "Dark";
     public String Language = "RU";
 
-    private SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
     public Settings(Context context){
          sharedPreferences = context.getSharedPreferences("Settings",Context.MODE_PRIVATE);
          getSettings();

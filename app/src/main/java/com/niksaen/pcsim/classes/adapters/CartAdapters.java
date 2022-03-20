@@ -21,16 +21,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class CartAdapters extends RecyclerView.Adapter<CartAdapters.ViewHolder> {
 
     private ArrayList<PcComponent> pcComponents;
-    private Context context;
-    private Typeface font;
+    private final Context context;
+    private final Typeface font;
 
     public CartAdapters(Context context, ArrayList<PcComponent> pcComponents){
         this.pcComponents = pcComponents;
         this.context = context;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
     }
 
     public CartAdapters(Context context, List<String> pcComponents, String type){
@@ -38,7 +40,7 @@ public class CartAdapters extends RecyclerView.Adapter<CartAdapters.ViewHolder> 
             this.pcComponents.add(new PcComponent(context,name,type));
         }
         this.context = context;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
     }
 
     public PcComponent get(int position){ return pcComponents.get(position); }

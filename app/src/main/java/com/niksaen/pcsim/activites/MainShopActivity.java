@@ -30,6 +30,8 @@ import com.niksaen.pcsim.save.Settings;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class MainShopActivity extends AppCompatActivity {
 
     private Typeface font;
@@ -44,7 +46,7 @@ public class MainShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_shop);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        font = Typeface.createFromAsset(getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(this);
         playerData = new PlayerData(this);
 
         getLanguage();
@@ -71,8 +73,8 @@ public class MainShopActivity extends AppCompatActivity {
     private void style(){
         moneyView.setTypeface(font,Typeface.BOLD);
         cartTitle.setTypeface(font,Typeface.BOLD);
-        buy.setTypeface(font,Typeface.BOLD);;
-        back.setTypeface(font,Typeface.BOLD);;
+        buy.setTypeface(font,Typeface.BOLD);
+        back.setTypeface(font,Typeface.BOLD);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);

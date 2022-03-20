@@ -23,15 +23,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class RecyclerChequeAdapter extends RecyclerView.Adapter<RecyclerChequeAdapter.ViewHolder>{
-    private ArrayList<PcComponent> pcComponents;
-    private Context context;
-    private Typeface font;
+    private final ArrayList<PcComponent> pcComponents;
+    private final Context context;
+    private final Typeface font;
 
     public RecyclerChequeAdapter(Context context, ArrayList<PcComponent> pcComponents){
         this.pcComponents = pcComponents;
         this.context = context;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
         getLanguage();
     }
 

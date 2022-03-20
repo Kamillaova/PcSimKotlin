@@ -1,7 +1,6 @@
 package com.niksaen.pcsim.classes.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.R;
-import com.niksaen.pcsim.program.driverInstaller.DriverInstaller;
+import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.classes.ProgramListAndData;
+import com.niksaen.pcsim.program.driverInstaller.DriverInstaller;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class StartMenuAdapter extends  ArrayAdapter<String> {
 
@@ -51,7 +52,7 @@ public class StartMenuAdapter extends  ArrayAdapter<String> {
                 programIcon.setVisibility(View.GONE);
 
             if (activity.styleSave.StartMenuAppNameVisible) {
-                programName.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+                programName.setTypeface(InitFont.INSTANCE.getPixelFont(getContext()));
                 programName.setText(activity.words.get(getItem(position)));
                 programName.setTextColor(activity.styleSave.StartMenuTextColor);
             } else {

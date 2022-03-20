@@ -7,23 +7,20 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Picture;
-import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 public class PaintCanvas extends View {
-    private Paint mPaint;
+    private final Paint mPaint;
     public int width;
     public int height;
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private Path mPath;
-    private Paint mBitmapPaint;
-    private Context context;
-    private Paint circlePaint;
-    private Path circlePath;
+    private final Path mPath;
+    private final Paint mBitmapPaint;
+    private final Context context;
+    private final Paint circlePaint;
+    private final Path circlePath;
 
     int strokeColor = Color.parseColor("#000000");
     float strokeWidth = 3;

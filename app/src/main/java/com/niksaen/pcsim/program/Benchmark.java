@@ -149,7 +149,7 @@ public class Benchmark extends Program{
         }
         return data_bench;
     }
-    private int[] bench = {0,0,0,0,0};
+    private final int[] bench = {0,0,0,0,0};
     private void bench(){
 
         timer = new Timer();

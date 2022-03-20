@@ -1,19 +1,20 @@
 package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.save.StyleSave;
 
 public class ButtonColorAdapter extends RecyclerView.Adapter<ButtonColorAdapter.ViewHolder>{
 
-    private int[] closeButtonDrawable = {
+    private final int[] closeButtonDrawable = {
             R.drawable.button_1_color1,
             R.drawable.button_1_color2,
             R.drawable.button_1_color3,
@@ -103,8 +104,8 @@ public class ButtonColorAdapter extends RecyclerView.Adapter<ButtonColorAdapter.
             R.drawable.button_3_color20,
     };
 
-    private Button[] buttons;
-    private LayoutInflater layoutInflater;
+    private final Button[] buttons;
+    private final LayoutInflater layoutInflater;
 
     public int currentCloseButtonImageRes;
     public int currentFullscreen1ButtonImageRes;
@@ -135,17 +136,14 @@ public class ButtonColorAdapter extends RecyclerView.Adapter<ButtonColorAdapter.
         viewHolder.buttons[1].setBackgroundResource(fullscreen1ButtonDrawable[i]);
         viewHolder.buttons[2].setBackgroundResource(fullscreen2ButtonDrawable[i]);
         viewHolder.buttons[3].setBackgroundResource(rollUpButtonDrawable[i]);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttons[0].setBackgroundResource(closeButtonDrawable[i]);
-                buttons[1].setBackgroundResource(fullscreen1ButtonDrawable[i]);
-                buttons[2].setBackgroundResource(rollUpButtonDrawable[i]);
-                currentCloseButtonImageRes = closeButtonDrawable[i];
-                currentFullscreen1ButtonImageRes = fullscreen1ButtonDrawable[i];
-                currentFullscreen2ButtonImageRes = fullscreen2ButtonDrawable[i];
-                currentRollUpButtonImageRes = rollUpButtonDrawable[i];
-            }
+        viewHolder.itemView.setOnClickListener(v -> {
+            buttons[0].setBackgroundResource(closeButtonDrawable[i]);
+            buttons[1].setBackgroundResource(fullscreen1ButtonDrawable[i]);
+            buttons[2].setBackgroundResource(rollUpButtonDrawable[i]);
+            currentCloseButtonImageRes = closeButtonDrawable[i];
+            currentFullscreen1ButtonImageRes = fullscreen1ButtonDrawable[i];
+            currentFullscreen2ButtonImageRes = fullscreen2ButtonDrawable[i];
+            currentRollUpButtonImageRes = rollUpButtonDrawable[i];
         });
     }
 

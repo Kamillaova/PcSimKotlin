@@ -6,9 +6,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.R;
+import com.niksaen.pcsim.activites.MainActivity;
 import com.niksaen.pcsim.program.Program;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class TaskManager extends Program {
     public TaskManager(MainActivity activity) {
@@ -37,15 +39,15 @@ public class TaskManager extends Program {
         useVideoMemory = mainWindow.findViewById(R.id.video_memory_use);
     }
     private void style(){
-        programName.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+        programName.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()));
         programName.setText(activity.words.get("Application"));
         programName.setTextColor(activity.styleSave.TextColor);
 
-        useRam.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+        useRam.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()));
         useRam.setText(activity.words.get("Memory"));
         useRam.setTextColor(activity.styleSave.TextColor);
 
-        useVideoMemory.setTypeface(Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf"));
+        useVideoMemory.setTypeface(InitFont.INSTANCE.getPixelFont(mainWindow.getContext()));
         useVideoMemory.setText(activity.words.get("Video memory"));
         useVideoMemory.setTextColor(activity.styleSave.TextColor);
 

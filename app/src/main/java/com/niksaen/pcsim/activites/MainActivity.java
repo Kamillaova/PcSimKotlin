@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.niksaen.pcsim.R;
 import com.niksaen.pcsim.classes.AssetFile;
 import com.niksaen.pcsim.classes.PopuListView.PopupListView;
+import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.classes.StringArrayWork;
 import com.niksaen.pcsim.classes.adapters.DesktopAdapter;
 import com.niksaen.pcsim.classes.adapters.DiskChangeAdapter;
@@ -33,9 +34,8 @@ import com.niksaen.pcsim.classes.adapters.StartMenuAdapter;
 import com.niksaen.pcsim.classes.adapters.ToolbarAdapter;
 import com.niksaen.pcsim.os.LiriOS;
 import com.niksaen.pcsim.os.NapiOS;
-import com.niksaen.pcsim.program.Program;
-import com.niksaen.pcsim.classes.ProgramListAndData;
 import com.niksaen.pcsim.os.cmd.CMD;
+import com.niksaen.pcsim.program.Program;
 import com.niksaen.pcsim.program.taskManager.TaskManager;
 import com.niksaen.pcsim.save.Language;
 import com.niksaen.pcsim.save.PcParametersSave;
@@ -44,10 +44,11 @@ import com.niksaen.pcsim.save.Settings;
 import com.niksaen.pcsim.save.StyleSave;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import dev.syorito_hatsuki.pcsim.init.InitFont;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity{
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                 1);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        font = Typeface.createFromAsset(getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(this);
 
         if(new Settings(this).Language.equals("")){
             Language.ChangeLanguage(this);
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity{
 
     public HashMap<String,String> words;
     private void getLanguage(){
-        TypeToken<HashMap<String,String>> typeToken = new TypeToken<HashMap<String,String>>(){};
+        TypeToken<HashMap<String,String>> typeToken = new TypeToken<>() {};
         words = new Gson().fromJson(new AssetFile(this).getText("language/"+ new Settings(this).Language+".json"),typeToken.getType());
     }
 

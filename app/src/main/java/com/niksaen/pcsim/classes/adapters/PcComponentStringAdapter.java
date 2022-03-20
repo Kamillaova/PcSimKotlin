@@ -18,17 +18,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class PcComponentStringAdapter  extends RecyclerView.Adapter<PcComponentStringAdapter.ViewHolder>{
-        private List<String> pcComponents;
-        private Context context;
-        private Typeface font;
-        private String type;
+        private final List<String> pcComponents;
+        private final Context context;
+        private final Typeface font;
+        private final String type;
 
     public PcComponentStringAdapter(Context context, List<String> pcComponents, String type){
         this.pcComponents = pcComponents;
         this.context = context;
         this.type = type;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
     }
 
         @NonNull

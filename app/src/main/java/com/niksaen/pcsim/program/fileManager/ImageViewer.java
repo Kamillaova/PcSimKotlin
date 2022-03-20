@@ -13,6 +13,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class ImageViewer extends Program {
     Typeface font;
 
@@ -20,7 +22,7 @@ public class ImageViewer extends Program {
         super(activity);
         this.Title = "Image Viewer";
 
-        font = Typeface.createFromAsset(activity.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(mainWindow.getContext());
         ValueRam = new int[]{10,20};
         ValueVideoMemory = new int[]{10,30};
     }

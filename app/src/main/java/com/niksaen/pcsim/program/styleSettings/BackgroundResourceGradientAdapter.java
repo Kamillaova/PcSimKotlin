@@ -1,26 +1,27 @@
 package com.niksaen.pcsim.program.styleSettings;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.niksaen.pcsim.R;
 
 public class BackgroundResourceGradientAdapter extends RecyclerView.Adapter<BackgroundResourceGradientAdapter.ViewHolder> {
 
-    private int[] gradientId = {
+    private final int[] gradientId = {
             R.drawable.gradient1,R.drawable.gradient5,R.drawable.gradient9,R.drawable.gradient13,R.drawable.gradient17,
             R.drawable.gradient2,R.drawable.gradient6,R.drawable.gradient10,R.drawable.gradient14,R.drawable.gradient18,
             R.drawable.gradient3,R.drawable.gradient7,R.drawable.gradient11,R.drawable.gradient15,R.drawable.gradient19,
             R.drawable.gradient4,R.drawable.gradient8,R.drawable.gradient12,R.drawable.gradient16,R.drawable.gradient20,
     };
 
-    private View testBackground;
-    private LayoutInflater layoutInflater;
+    private final View testBackground;
+    private final LayoutInflater layoutInflater;
     public BackgroundResourceGradientAdapter(Context context, View testBackground){
         layoutInflater = LayoutInflater.from(context);
         this.testBackground = testBackground;
@@ -37,12 +38,9 @@ public class BackgroundResourceGradientAdapter extends RecyclerView.Adapter<Back
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.colorView.setBackgroundResource(gradientId[i]);
-        viewHolder.colorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentGradientId = gradientId[i];
-                testBackground.setBackgroundResource(gradientId[i]);
-            }
+        viewHolder.colorView.setOnClickListener(v -> {
+            currentGradientId = gradientId[i];
+            testBackground.setBackgroundResource(gradientId[i]);
         });
     }
 

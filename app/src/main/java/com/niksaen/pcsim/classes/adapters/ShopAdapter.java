@@ -23,12 +23,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import dev.syorito_hatsuki.pcsim.init.InitFont;
+
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
 
-    private ArrayList<String> strings;
-    private Context context;
-    private String type;
-    private Typeface font;
+    private final ArrayList<String> strings;
+    private final Context context;
+    private final String type;
+    private final Typeface font;
 
     public String getType(){
         return this.type;
@@ -39,7 +41,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         this.strings = strings;
         this.context = context;
         this.type = type;
-        font = Typeface.createFromAsset(context.getAssets(), "fonts/pixelFont.ttf");
+        font = InitFont.INSTANCE.getPixelFont(context);
         getLanguage();
     }
 
